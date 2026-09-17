@@ -450,7 +450,7 @@ export const routes = {
       georeferenciacion: {
         path: `voluntario/georeferenciacion/index.html`,
         controlador: GeoreController.GeoreController,
-        config: { ...voluntarioRoute, permissions: ["home-frontend.voluntario"] },
+        config: { ...voluntarioRoute, permissions: ["home-frontend.supervisor"] },
       },
 
       grafico_vivienda: {
@@ -474,21 +474,9 @@ export const routes = {
 
       plan_de_accion: {
 
-        antes: {
-          path: `voluntario/planAccion/index.html`,
-          controlador: planAccion.antes,
-          config: { ...supervisorRoute, permissions: ["home-frontend.supervisor"] },
-        },
-        durante: {
-          path: `voluntario/planAccion/index.html`,
-          controlador: planAccion.durante,
-          config: { ...supervisorRoute, permissions: ["home-frontend.supervisor"] },
-        },
-        despues: {
-          path: `voluntario/planAccion/index.html`,
-          controlador: planAccion.despues,
-          config: { ...supervisorRoute, permissions: ["home-frontend.supervisor"] },
-        }
+        path: `voluntario/planAccion/index.html`,
+        controlador: planAccion.planAccionController,
+        config: { ...supervisorRoute, permissions: ["home-frontend.supervisor"] },
       }
     }
   },

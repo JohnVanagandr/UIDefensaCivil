@@ -164,7 +164,6 @@ export default async () => {
               if (!validate.has_risk_factors)   faltantes.push('Al menos 1 factor de riesgo');
               if (!validate.has_resources)      faltantes.push('Al menos 1 recurso disponible');
               if (!validate.has_photos)         faltantes.push('Al menos 1 foto del entorno');
-              if (!validate.has_graphics)       faltantes.push('Al menos 1 gráfico de vivienda');
               if (!validate.has_action_before)  faltantes.push('Plan de acción: falta Antes');
               if (!validate.has_action_during)  faltantes.push('Plan de acción: falta Durante');
               if (!validate.has_action_after)   faltantes.push('Plan de acción: falta Después');
