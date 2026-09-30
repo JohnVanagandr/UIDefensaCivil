@@ -228,6 +228,8 @@ export default async () => {
     }
 
     testRespuestas.contador = Object.keys(testRespuestas.puntaje).length; // El contador toma datos numericos del puntaje con .length, el puntaje solo tomara los datos existentes "= true", ya que los datos "= false" son eliminados
+
+    // console.log(`Puntaje actual: ${testRespuestas.contador}`);
   });
 
   /**
@@ -275,8 +277,11 @@ export default async () => {
         testRespuestas.puntaje[`puntaje-opcion-${p.id}`]
       ) {
         puntos++;
-      }
 
+        
+      }
+      
+      console.log(puntos);
       // Todo aqui funciona correctamente, respuesta tienen como trabajo asegurarse de la cantidad de respuestas almacenadas en la propiedad respuesta lo que aumentara el contador de "respondidas"
       // Los datos almacenados en la propiedad de puntaje en el objeto solo guarda respuestas = true, por lo que los puntos seran iguales a la cantidad de opciones = true que hayan
       // Esto servira para la creacion de comparaciones y convalidaciones antes de enviar los puntos del test

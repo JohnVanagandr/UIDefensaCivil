@@ -356,7 +356,7 @@ const RevisionPlanController = async () => {
 
     // 📋 Plan de acción
     btnPlanAccion.addEventListener("click", () => {
-        location.hash = `#/supervisor/plan_familiar/plan_de_accion/antes?familia_id=${id}`;
+        location.hash = `#/supervisor/plan_familiar/plan_de_accion?familia_id=${id}`;
     });
 
     tarjetaContenido.append(contenedorBotonesExtra);
