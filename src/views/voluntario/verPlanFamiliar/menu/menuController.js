@@ -10,6 +10,7 @@ import { api } from "@/helpers/index.js";
 import { alertas as alerta } from "@/helpers/index.js";
 import AccesoPlan from "@/helpers/accesoPlan"; // Security Guard Midleware Role Front
 import { formatearLista, separarLista } from "../../../../componentes/separar/separarLista";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
   // Selectores DOM de la Cuadrícula HTML de Módulos (Iconos grandes)
@@ -35,7 +36,7 @@ export default async () => {
   // Guardián Frontend: ¿El usuario que intenta entrar por URL es el dueño de este plan? ¿Tiene el estado correcto para modificarlo? Si no, lo patea.
   await AccesoPlan(id); 
 
-  const esSupervisor = location.hash.includes("supervisor/");
+  const {esSupervisor} = obtenerRol();
   const base = esSupervisor ? "supervisor" : "voluntario";
   
   // Fetch Cabecera Datos Básicos Flia 
@@ -164,7 +165,6 @@ export default async () => {
               if (!validate.has_risk_factors)   faltantes.push('Al menos 1 factor de riesgo');
               if (!validate.has_resources)      faltantes.push('Al menos 1 recurso disponible');
               if (!validate.has_photos)         faltantes.push('Al menos 1 foto del entorno');
-              if (!validate.has_graphics)       faltantes.push('Al menos 1 gráfico de vivienda');
               if (!validate.has_action_before)  faltantes.push('Plan de acción: falta Antes');
               if (!validate.has_action_during)  faltantes.push('Plan de acción: falta Durante');
               if (!validate.has_action_after)   faltantes.push('Plan de acción: falta Después');

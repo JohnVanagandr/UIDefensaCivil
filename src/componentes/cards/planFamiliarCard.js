@@ -1,4 +1,6 @@
 import { estado_planes, getBadgeClase } from "../../helpers/cambioEstado.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
+
 
 const crearDatoConIcono = (claseIcono, texto) => {
     const contenedor = document.createElement("div");
@@ -17,9 +19,7 @@ const crearDatoConIcono = (claseIcono, texto) => {
 
 export const cardPlanFamiliar = (info) => {
 
-    const rolId = parseInt(localStorage.getItem("role_id"));
-    const esSupervisor = rolId === 2;
-    const esVoluntario = rolId === 3;
+    const { esSupervisor, esVoluntario } = obtenerRol();
 
     const div = document.createElement("div");
     div.classList.add("tarjeta");

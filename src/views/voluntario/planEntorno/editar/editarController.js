@@ -8,6 +8,7 @@
 import { alertas as alerta } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { api } from "@/helpers/index.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
 
@@ -22,6 +23,8 @@ export default async () => {
   const id_HousingInfoType = 2; //2 = grafico Entorno
 
   const familyPlan = await api.get(`familyPlans/${id}`);
+  
+  const { esSupervisor } = obtenerRol();
 
   if (familyPlan.status_plan_id === 6 || familyPlan.status_plan_id === 7) {
 
@@ -45,8 +48,6 @@ export default async () => {
     window.procesoPeticion = true;
   }
   window.procesoPeticion = true;
-
-  const esSupervisor = location.hash.includes("/supervisor/");
 
   // Lógica funcional al tocar la flecha superior de ir hacia atrás
   botonBack.onclick = async () => {

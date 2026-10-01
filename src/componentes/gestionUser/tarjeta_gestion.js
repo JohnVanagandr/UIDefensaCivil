@@ -1,19 +1,12 @@
 import * as api from "@/helpers/api";
 import { estado_planes, estado_usuarios, getBadgeClase } from "@/helpers/cambioEstado";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export const tarjetaEstados = (info) => {
 
-    console.log( info);
-    
-
-    const hash = window.location.hash;
-    const rolId = parseInt(localStorage.getItem("role_id"));
-
-    const esAdmin = rolId === 1 && hash.includes("administrador/");
-    const esSupervisor = rolId === 2 && hash.includes("supervisor/");
+    const { esSupervisor, esAdmin } = obtenerRol();
 
     const rolID = parseInt(info.rol_id); 
-
     
     // Contenedor principal de la tarjeta
     const tarjeta = document.createElement('div');

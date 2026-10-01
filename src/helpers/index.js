@@ -1,6 +1,5 @@
 // Default exports (exported under their filename as named values)
 export { default as accesoPlan } from "./accesoPlan.js";
-export { default as acordeon } from "./acordeon.js";
 export { default as crearLista } from "./crearLista.js";
 export { default as paginacion } from "./paginacion.js";
 export { default as ventanaHistorial } from "./ventanaHistorial.js";

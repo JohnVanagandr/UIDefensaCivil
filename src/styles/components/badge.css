@@ -9,20 +9,20 @@
 }
 
 .badge--rechazado {
-  background-color: var(--color-fondorojitranslucido);
-  color: var(--color-rojizo);
+  background-color: var(--color-rojizo);
+  color: var(--color-palido);
 }
 
 .badge--completado,
 .badge--aprobado {
-  background-color: var(--color-fondoverdetranslucido);
-  color: var(--color-verdoso);
+  background-color: var(--color-verdoso);
+  color: var(--color-palido);
 }
 
 .badge--pendiente,
 .badge--devuelto {
-  color: var(--color-primario);
-  background-color: var(--color-fononaranjatranslucido);
+  color: var(--color-palido);
+  background-color: var(--color-primario);
 }
 
 .badge--creado{

@@ -47,7 +47,7 @@
   gap: 10px;
   background: var(--color-palido);
   font-size: 1.5rem;
-  border: 2px solid var(--color-grisOscuro);
+  border: none;
   padding: 20px;
   border-radius: 30px;
   transition: 0.5s;
@@ -115,7 +115,7 @@
 .gestionarAfecciones__descripcion p{
 
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: start;
 }
 
@@ -123,7 +123,7 @@
 
   display: flex;
   gap: 10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .gestionarAfecciones__Responsable span{
@@ -151,8 +151,25 @@
     font-size: 1.0rem;
   }
 
+  .gestionarAfecciones__descripcion {
+
+    gap: 5px;
+  }
+
   .gestionarAfecciones__descripcion p{
 
-    font-size: 1.7rem;
+    font-size: 1.2rem;
+  }
+
+  .gestionarAfecciones__descripcion i{
+
+    font-size: 1.4rem;
+  }
+
+  .gestionarAfecciones__Responsable {
+
+    flex-direction: column;
+    text-align: start;
+    gap: 5px;
   }
 }

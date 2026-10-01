@@ -1,8 +1,11 @@
 import * as api from "@/helpers/api";
 import * as alerta from "@/helpers/alertas";
 
-const integranteVentana = async (miembro, relacion, info) =>{
+const integranteVentana = async (miembro, info) =>{
 
+    console.log(miembro);
+    
+    
     const overlay = document.createElement("div");
     overlay.classList.add("overlay_verEstado");
 
@@ -22,8 +25,6 @@ const integranteVentana = async (miembro, relacion, info) =>{
 
     
     // NOMBRE Y APELLIDO _____________________________________________________________________________________________
-    const nombreApellidoCont = document.createElement("div");
-    nombreApellidoCont.classList.add("form_autorizacion");
 
     const nombreCont= document.createElement("div");
     nombreCont.classList.add("form_autorizacion", "form-column_autorization");
@@ -32,30 +33,14 @@ const integranteVentana = async (miembro, relacion, info) =>{
     nombreTitulo.classList.add("form__texto");
     const userIcono = document.createElement("i");
     userIcono.classList.add("icono--pequeno", "ri-user-line");
-    nombreTitulo.append(userIcono, " Nombres");
+
+    nombreTitulo.append(userIcono, " Nombre");
+
     const nombreIntegrante = document.createElement("p");
     nombreIntegrante.classList.add("form_autorizacion", "integrante--nombre");
-    nombreIntegrante.textContent = miembro.names;
+    nombreIntegrante.textContent = miembro.full_name;
 
     nombreCont.append(nombreTitulo, nombreIntegrante);
-
-    const apellidoCont = document.createElement("div");
-    apellidoCont.classList.add("form_autorizacion", "form-column_autorization");
-
-    const apellidoTitulo = document.createElement("p");
-    apellidoTitulo.classList.add("form__texto");
-    const apellidoIcono = document.createElement("i");
-    apellidoIcono.classList.add("icono--pequeno", "ri-user-line");
-
-    apellidoTitulo.append(apellidoIcono, " Apellidos");
-
-    const apellidoIntegrante = document.createElement("p");
-    apellidoIntegrante.classList.add("form_autorizacion", "integrante--nombre");
-    apellidoIntegrante.textContent = miembro.last_names;
-
-    apellidoCont.append(apellidoTitulo, apellidoIntegrante);
-
-    nombreApellidoCont.append(nombreCont, apellidoCont);
 
     //
 
@@ -73,9 +58,10 @@ const integranteVentana = async (miembro, relacion, info) =>{
 
     const relacionIntegrante = document.createElement("p");
     relacionIntegrante.classList.add("form_autorizacion");
-    relacionIntegrante.textContent = relacion.name;
+    relacionIntegrante.textContent = miembro.kinship;
 
     relacionCont.append(relacionTitulo, relacionIntegrante);
+
     //
 
 
@@ -91,7 +77,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
 
     const documentoIdentidad = document.createElement("p");
     documentoIdentidad.classList.add("form_autorizacion");
-    documentoIdentidad.textContent = `${miembro.document_type.acronym} ${miembro.document_number}`;
+    documentoIdentidad.textContent = `${miembro.document_acronym} ${miembro.document_number}`;
 
     documentosCont.append(documentosTitulo, documentoIdentidad);
     //
@@ -145,7 +131,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
     generoTitulo.append(generoIcono, " Género");
     const genero = document.createElement("p");
     genero.classList.add("form_autorizacion");
-    genero.textContent = miembro.gender.name;
+    genero.textContent = miembro.gender;
 
     generoCont.append(generoTitulo, genero);
     //
@@ -162,7 +148,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
     nacionalidadTitulo.append(nacionalidadIcono, " Nacionalidad");
     const nacionalidad = document.createElement("p");
     nacionalidad.classList.add("form_autorizacion");
-    nacionalidad.textContent = miembro.nationality.name;
+    nacionalidad.textContent = miembro.nationality;
 
     nacionalidadCont.append(nacionalidadTitulo, nacionalidad);
     //
@@ -234,7 +220,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
     tipoSangreTitulo.append(tipoSangreIcono, " Tipo de Sangre");
     const tipoSangre = document.createElement("p");
     tipoSangre.classList.add("form_autorizacion");
-    tipoSangre.textContent = miembro.blood_group.name;
+    tipoSangre.textContent = miembro.blood_group;
     tipoSangreCont.append(tipoSangreTitulo, tipoSangre);
     //
 
@@ -243,7 +229,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
     const contenidoVentana = document.createElement("div");
     contenidoVentana.classList.add("contenido-ventana")
     
-    contenidoVentana.append(nombreApellidoCont, relacionCont, documentosCont, fechaNacimientoCont, generoCont, nacionalidadCont, numeroTelefonoCont, epsCont, afeccionesCont, tipoSangreCont);
+    contenidoVentana.append(nombreCont, relacionCont, documentosCont, fechaNacimientoCont, generoCont, nacionalidadCont, numeroTelefonoCont, epsCont, afeccionesCont, tipoSangreCont);
     
     if (info.status_plan_id !== 6 && info.status_plan_id !== 7) {
         ventana.append(btnCerrarCont, contenidoVentana, btnEditar);
@@ -263,6 +249,7 @@ const integranteVentana = async (miembro, relacion, info) =>{
             overlay.remove();
         }
     };
+
 
     btnEditar.addEventListener("click", () => {
         location.href = `#/supervisor/plan_familiar/integrantes/editar?familia_id=${info.id}&integrante_id=${miembro.id}`;

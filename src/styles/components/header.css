@@ -1,10 +1,13 @@
 .headerCont {
   width: 100%;
+  height: 100px;
+  min-width: 340px;
   padding: 10px;
   display: flex;
   justify-content: center;
-  height: fit-content;
-  /* background-color: var(--color-grisFondo); */
+  transition: ease-in-out 0.5s;
+  position: fixed;
+  transition: ease-in-out 0.5s;
 }
 
 .header {
@@ -17,9 +20,15 @@
   padding: 10px;
   height: var(--altura-header);
   align-items: center;
-  transform: ease 0.3s;
   height: fit-content;
   border-radius: 100px;
+  transform: translateY(0);
+  transition: ease-in-out 0.2s;
+}
+
+.header--hidden {
+
+  transform: translateY(-100px);
 }
 
 .header__contenedor {

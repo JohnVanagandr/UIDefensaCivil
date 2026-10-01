@@ -8,6 +8,8 @@
 import { alertas as alerta } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { api } from "@/helpers/index.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
+
 
 export default async () => {
   // Selectores UI Básicos Textos/Forms
@@ -25,13 +27,13 @@ export default async () => {
   
   const descripcion = document.getElementById("descripcion"); // TextArea Node Target
 
+  const { esSupervisor } = obtenerRol();
+
   // Initial request concurrency blocker
   if (window.procesoPeticion === undefined) {
     window.procesoPeticion = true;
   }
   window.procesoPeticion = true;
-
-  const esSupervisor = location.hash.includes("/supervisor/");
 
   // Atrás Return listado fotos
   botonBack.onclick = async () => {

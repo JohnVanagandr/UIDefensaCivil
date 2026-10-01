@@ -12,6 +12,7 @@ import { alertas as alerta } from "@/helpers/index.js";
 import { paginacion } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { graficoVivienda as modalGraficoVivienda } from "@/helpers/modales/index.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
 
@@ -24,12 +25,12 @@ export default async () => {
 
     // Contenedor Target del Helper 'Listador Paginador'
     const contenedor = document.querySelector(".container__paginas");
+    
+    const { esSupervisor } = obtenerRol();
 
     // Lock UX Network request multiple (Anti-DDoS local clicks)
     if (window.procesoPeticion === undefined) window.procesoPeticion = true;
     window.procesoPeticion = true;
-
-    const esSupervisor = location.hash.includes("/supervisor/");
 
     botonBack.onclick = () => {
         if (window.procesoPeticion) return;

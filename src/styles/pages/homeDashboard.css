@@ -411,6 +411,16 @@
 @media (min-width: 1268px) and (max-width: 1350px) {
 .home-supervisor .profile-details h3 { font-size: 24px; max-width: 360px; }
 }
+@media (max-width: 1570px) {
+    .v-panel-stats-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .v-actions-container {
+        flex-direction: row;
+    }
+}
 @media (max-width: 1110px) {
     .home-supervisor .dashboard-grid__ilustracion { display: none; }
 }
@@ -418,30 +428,15 @@
     .home-supervisor .section-headline { margin-left: 20px; }
 .home-supervisor .supervisor-card { padding: 18px 30px;}
 }
-@media (max-width: 768px) {
-.home-supervisor .wrapper { flex-direction: column; gap: 20px; }
-.home-supervisor .dashboard-body { gap: 20px; }
+@media (max-width: 900px) {
 .home-supervisor .dashboard-grid { grid-template-columns: 1fr; gap: 20px; }
-.home-supervisor .supervisor-card { flex-wrap: wrap; justify-content: center; padding: 18px 24px; width: 100%; }
-.home-supervisor .profile-image-frame { width: 90px; height: 90px; font-size: 2.8rem; }
-.home-supervisor .profile-details h3 { font-size: 26px; }
-.home-supervisor .total-revisados-container .big-display { font-size: 40px; }
-.home-supervisor .panel-planes-title { width: 100%; margin-left: 0; }
-.home-supervisor .planes-container-panel { max-height: unset; }
-.v-main-container { padding: 10px 16px 30px; gap: 20px; }
-.v-panel { padding: 24px; border-radius: 28px; }
-.v-panel-right { padding: 24px 20px; }
-.v-volunteer-name { font-size: 26px; }
-.v-counter-number { font-size: 48px; }
-.v-counter-icon { font-size: 42px;}
-.v-panel-stats-actions { flex-direction: column; }
-.v-actions-container { min-width: unset; width: 100%; }
-.v-stats-title { margin-left: 0; font-size: 20px; }
-.v-tag { padding: 10px 18px; font-size: 14px; }
-.v-orange-line { width: 180px; }
-.v-family-image { max-width: 100%; height: auto; }
-.v-family-image-container { margin-bottom: -60px; }
-.v-notifications-list { max-height: 340px; }
+
+}
+@media (max-width: 768px){
+    .v-tags-row{
+        flex-direction: column;
+        align-items: center;
+    }
 }
 @media (max-width: 480px) {
 .home-supervisor { padding-left: 12px; padding-right: 12px; }
@@ -497,9 +492,9 @@
 .v-counter-number { font-size: 50px; }
 .v-counter-icon { font-size: 35px; padding: 8px;}
 .v-counter-row { gap: 10px; }
-.v-btn { min-height: 48px; max-width: 350px; width: 80%; padding: 17px; font-size: 16px; }
+.v-btn { min-height: 48px; max-width: 350px; width: 80%; padding: 17px; font-size: 16px; font-size: 0.8rem;}
 .v-panel-stats-actions { order: 3; margin-top: 120px; align-items: center; }
-.v-actions-container { align-items: center; }
+.v-actions-container { align-items: center; flex-direction: column;}
 .v-stats-title { font-size: 20px; margin-left: 7px; text-align: center; }
 .v-tags-row { flex-direction: column; align-items: center; gap: 6px; width: 100%; }
 .v-tag { padding: 11px 20px; font-size: 17px; }

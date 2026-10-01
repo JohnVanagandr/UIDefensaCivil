@@ -11,6 +11,19 @@
 .tarjeta__flex--row {
 
     display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.container__revision .tarjeta {
+
+    padding: 20px;
+    border-radius: 40px;
+    background: linear-gradient(0deg, rgba(235, 248, 255, 0) 0%, rgba(255, 255, 255, 0.822) 100%);
+    box-shadow: unset;
+    max-width: 1000px;
 }
 
 .tarjeta__flex--column{
@@ -336,10 +349,19 @@
     transition: ease-in-out 0.3s;
 }
 
-.targeta-botones-extra {
+.tarjeta-botones-extra {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+.tarjeta-panel_accion {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
@@ -358,7 +380,7 @@
     scale: 1.05;
 }
 
-.container__revision .targeta-botones-extra button:hover {
+.container__revision .tarjeta-botones-extra button:hover {
     scale: 1.02;
 }
 
@@ -395,5 +417,24 @@
     }
     .tarjeta__iconoItem{
         font-size: var(--tamano-mediano);
+    }
+}
+
+@media (max-width: 590px) {
+    
+    .tarjeta-contenido_flex {
+
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .tarjeta__flex--row {
+        flex-direction: column;
+    }
+
+    .tarjeta--introduccion_supervisor {
+
+        flex-direction: column;
+        padding-bottom: 20px;
     }
 }

@@ -3,10 +3,12 @@ import { api } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { paginacion } from "@/helpers/index.js";
 import tiempoRelativo from "@/componentes/tiempos/tiempoRelativo";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 const notificacionesController = async () => {
 
-    const esSupervisor = location.hash.includes("supervisor/");
+    const { esSupervisor } = obtenerRol();
+
     const userId = localStorage.getItem('id');
     const contenedor = document.querySelector(".container__paginas");
 
@@ -84,9 +86,8 @@ const notificacionesController = async () => {
 
             notificacionCont.addEventListener("click", async () => {
                 await api.patch(`notifications/${notificacion.id}`, { is_read: true });
-                location.href = esSupervisor
-                    ? `#/supervisor/plan_familiar/revision?familia_id=${notificacion.entidad.id}`
-                    : `#/voluntario/plan_familiar/familia?id=${notificacion.entidad.id}`;
+                location.href = esSupervisor ? `#/supervisor/plan_familiar/revision?familia_id=${notificacion.entidad.id}` 
+                : `#/voluntario/plan_familiar/familia?id=${notificacion.entidad.id}`;
             });
 
             if (notificacion.entidad.comentario !== null) {

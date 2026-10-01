@@ -8,6 +8,7 @@
 import { alertas as alerta } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { api } from "@/helpers/index.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
   // Selectores Identidad
@@ -29,13 +30,13 @@ export default async () => {
   const TAMANO_MAX_BYTES = TAMANO_MAX_MB * 1024 * 1024;
   const TIPOS_PERMITIDOS = ["image/jpeg", "image/png", "image/webp"];
 
+  const { esSupervisor } = obtenerRol();
+
   // Barrera concurrencia inicial
   if (window.procesoPeticion === undefined) {
     window.procesoPeticion = true;
   }
   window.procesoPeticion = true;
-
-  const esSupervisor = location.hash.includes("/supervisor/");
 
   // Lógica Botón Atrás (Flujo lineal Wizard - vuelve a la Identificación)
   botonBack.onclick = async () => {

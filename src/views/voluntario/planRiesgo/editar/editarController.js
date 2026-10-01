@@ -6,11 +6,12 @@ import { api, alertas as alerta, validacionInputs as validacion, adjuntarOpcione
 import { initTomSelectPortatil } from "@/helpers/tomSelectPortatil.js";
 import { VistaRiesgo, agregarVulnerabilidadMemoria, agregarAccionMemoria } from "@/componentes/riesgo/index.js";
 import { tarjetaChip } from "@/componentes/tarjetaChip.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
-    const esSupervisor = location.hash.includes("/supervisor/");
     const hashQuery = location.hash.split("?")[1] ?? "";
     const params = new URLSearchParams(hashQuery);
+    const {esSupervisor} = obtenerRol();
 
     const planId = params.get("familia_id");
     const riesgoId = params.get("riesgo_id");

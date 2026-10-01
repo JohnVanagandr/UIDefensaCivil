@@ -2,12 +2,12 @@ import * as api from "@/helpers/api";
 import * as alerta from "@/helpers/alertas";
 import { adjuntarOpciones as adjuntarOpc } from "@/helpers/index.js";
 import { initTomSelectPortatil } from "@/helpers/tomSelectPortatil";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 import * as fechas from "@/helpers/fechas";
 
 const verUsuarioVentana = async (endpoint, recargar, urlHistorial) => {
 
-    const rolId = parseInt(localStorage.getItem("role_id"));
-    const esSupervisor = rolId === 2 && location.hash.includes("supervisor");
+    const { esSupervisor } = obtenerRol();
 
     const peticion = await api.get(endpoint);
 

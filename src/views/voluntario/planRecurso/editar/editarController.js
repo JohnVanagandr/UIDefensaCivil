@@ -17,6 +17,9 @@ import { adjuntarOpciones as adjuntarOpc } from "@/helpers/index.js";
 
 import { initTomSelectPortatil } from "@/helpers/tomSelectPortatil";
 
+import { obtenerRol } from "@/helpers/obtenerRol.js";
+
+
 export default async () => {
   // Manejo Base DOM Window Document
   const botonBack = document.getElementById("botonBack");
@@ -29,14 +32,16 @@ export default async () => {
 
   const planId = params.get("familia_id"); // Target URL Regreso Plan Padre
   const recursoId = params.get("recurso_id"); // Target ID EndPoint Target
-
+  
+  const {esSupervisor} = obtenerRol();
+  
   // Lock Flow Concurrency
   if (window.procesoPeticion === undefined) {
     window.procesoPeticion = true;
   }
   window.procesoPeticion = true;
 
-  const esSupervisor = location.hash.includes("/supervisor/");
+
 
   // Abort and Return 
   botonBack.onclick = async () => {

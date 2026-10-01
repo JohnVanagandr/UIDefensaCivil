@@ -10,6 +10,23 @@ export const componenteHeader = async () => {
 
     const header = document.createElement("div");
     header.classList.add("header"); 
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+
+        const currentY = window.scrollY;
+
+        if(currentY > lastScrollY && currentY > 60) {
+
+            header.classList.add("header--hidden");
+        } else {
+
+            header.classList.remove("header--hidden");
+        }
+
+        lastScrollY = currentY;
+    });
     
     const botonAtras = document.createElement("button");
     botonAtras.classList.add("header__boton", "header__boton--atras");

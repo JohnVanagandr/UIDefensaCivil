@@ -13,14 +13,15 @@ import { VistaMascotas, VacunaModal } from "@/componentes/mascotas/index.js";
 import { tarjetaChip } from "@/componentes/tarjetaChip.js";
 import { validacionInputs as validacion, fechas, adjuntarOpciones as adjuntarOpc } from "@/helpers/index.js";
 import { initTomSelectPortatil } from "@/helpers/tomSelectPortatil.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 /**
  * Inicializa el controlador de edición de mascota
  */
 export default async () => {
-  const esSupervisor = location.hash.includes("/supervisor/");
   const hashQuery = location.hash.split("?")[1] ?? "";
   const params = new URLSearchParams(hashQuery);
+  const {esSupervisor} = obtenerRol();
 
   const planId = params.get("familia_id");
   const mascotaId = params.get("mascota_id");

@@ -1,163 +1,126 @@
 <div class="container">
 
     <div class="explicacion">
-
         <div class="explicacion__titulo">
-
             <i class="ri-group-3-fill"></i>
-
             <span>Editar integrante</span>
-            
         </div>
-
         <img src="asset/ilustracion_integrantes.svg" alt="">
-
     </div>
 
-    <div class="acordeon">
-        <button class="acordeon__nombre">
-            <div class="acordeon__iconoTitulo">
-                <i class="ri-user-line acordeon__icono"></i>
-                <p class="acordeon__titulo">Datos del integrante</p>
+    <div class="container__gap">
+
+        <form class="form">
+
+            <div class="input">
+                <div class="form__inputBox">
+                    <i class="ri-user-line"></i>
+                    <input type="text" placeholder="nombres" id="nombres" autocomplete="off">
+                </div>
             </div>
-            <div class="acordeon__flecha">
-                <i class="ri-arrow-down-s-line"></i>
+
+            <div class="input">
+                <div class="form__inputBox">
+                    <i class="ri-user-line"></i>
+                    <input type="text" placeholder="apellidos" id="apellidos" autocomplete="off">
+                </div>
             </div>
-        </button>
 
-        <div class="acordeon__contenido--oculto" id="acordeon__container">
+            <div class="input">
+                <div class="form__inputBox form__inputBox--selector">
+                    <i class="ri-id-card-line" id="selector__icono"></i>
+                    <select class="selector-portatil" id="tiposDocumento">
+                        <option value="" hidden>Seleccione un tipo de documento...</option>
+                    </select>
+                </div>
+            </div>
 
-            <form class="form">
+            <div class="input">
+                <div class="form__inputBox">
+                    <i class="ri-info-card-line"></i>
+                    <input type="text" placeholder="numero de documento" id="numeroDocumento" autocomplete="off">
+                </div>
+            </div>
 
+            <div class="input">
+                <div class="form__inputBox form__inputBox--selector">
+                    <i class="ri-men-line" id="selector__icono"></i>
+                    <select class="selector-portatil" id="generos">
+                        <option value="" hidden>Seleccione un genero...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form__inputBox--double">
                 <div class="input">
                     <div class="form__inputBox">
-                        <i class="ri-user-line"></i>
-                        <input type="text" placeholder="nombres" id="nombres" autocomplete="off">
-                    </div>
-                </div>
-
-                <div class="input">
-                    <div class="form__inputBox">
-                        <i class="ri-user-line"></i>
-                        <input type="text" placeholder="apellidos" id="apellidos" autocomplete="off">
+                        <i class="ri-cake-2-line"></i>
+                        <input type="date" placeholder="fecha de nacimiento" id="nacimiento" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="input">
                     <div class="form__inputBox form__inputBox--selector">
-                        <i class="ri-id-card-line" id="selector__icono"></i>
-                        <select class="selector-portatil" id="tiposDocumento">
-                            <option value="" hidden>Seleccione un tipo de documento...</option>
+                        <i class="ri-health-book-line" id="selector__icono"></i>
+                        <select class="selector-portatil" id="eps">
+                            <option value="" hidden>Seleccione un eps...</option>
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <div class="input">
-                    <div class="form__inputBox">
-                        <i class="ri-info-card-line"></i>
-                        <input type="text" placeholder="numero de documento" id="numeroDocumento" autocomplete="off">
-                    </div>
+            <div class="input">
+                <div class="form__inputBox form__inputBox--selector">
+                    <i class="ri-team-line" id="selector__icono"></i>
+                    <select class="selector-portatil" id="parentescos">
+                        <option value="" hidden>Seleccione un parentesco...</option>
+                    </select>
                 </div>
+            </div>
 
-                <div class="input">
-                    <div class="form__inputBox form__inputBox--selector">
-                        <i class="ri-men-line" id="selector__icono"></i>
-                        <select class="selector-portatil" id="generos">
-                            <option value="" hidden>Seleccione un genero...</option>
-                        </select>
-                    </div>
+            <div class="input">
+                <div class="form__inputBox form__inputBox--selector">
+                    <i class="ri-heart-pulse-line" id="selector__icono"></i>
+                    <select class="selector-portatil" id="grupoSanguineos">
+                        <option value="" hidden>Seleccione un grupo sanguineo...</option>
+                    </select>
                 </div>
+            </div>
 
-                <div class="form__inputBox--double">
-
-                    <div class="input">
-                        <div class="form__inputBox">
-                            <i class="ri-cake-2-line"></i>
-                            <input type="date" placeholder="fecha de nacimiento" id="nacimiento" autocomplete="off">
-                        </div>
-                    </div>
-
-                    <div class="input">
-                        <div class="form__inputBox form__inputBox--selector">
-                            <i class="ri-health-book-line" id="selector__icono"></i>
-                            <select class="selector-portatil" id="eps">
-                                <option value="" hidden>Seleccione un eps...</option>
-                            </select>
-                        </div>
-                    </div>
-
+            <div class="input">
+                <div class="form__inputBox form__inputBox--selector">
+                    <i class="ri-flag-line" id="selector__icono"></i>
+                    <select class="selector-portatil" id="nacionalidades">
+                        <option value="" hidden>Seleccione un nacionalidad...</option>
+                    </select>
                 </div>
+            </div>
 
-                <div class="input">
-                    <div class="form__inputBox form__inputBox--selector">
-                        <i class="ri-team-line" id="selector__icono"></i>
-                        <select class="selector-portatil" id="parentescos">
-                            <option value="" hidden>Seleccione un parentesco...</option>
-                        </select>
-                    </div>
+            <div class="input">
+                <div class="form__inputBox">
+                    <i class="ri-phone-line"></i>
+                    <input type="text" placeholder="celular personal" id="celularPersonal" autocomplete="off">
                 </div>
+            </div>
 
-                <div class="input">
-                    <div class="form__inputBox form__inputBox--selector">
-                        <i class="ri-heart-pulse-line" id="selector__icono"></i>
-                        <select class="selector-portatil" id="grupoSanguineos">
-                            <option value="" hidden>Seleccione un grupo sanguineo...</option>
-                        </select>
-                    </div>
+            <button class="boton" id="botonGuardar" disabled>Guardar</button>
+
+        </form>
+    </div>
+
+    <div class="container__gap">
+
+        <div class="gestioarAfecciones">
+            <div class="gestionarAfecciones__header">
+                <div class="gestionarAfecciones__titulo">
+                    <i class="ri-capsule-line"></i>
+                    <p>Lista de Afecciones</p>
                 </div>
+                <button class="gestionarAfecciones__boton boton">Agregar nuevo</button>
+            </div>
 
-                <div class="input">
-                    <div class="form__inputBox form__inputBox--selector">
-                        <i class="ri-flag-line" id="selector__icono"></i>
-                        <select class="selector-portatil" id="nacionalidades">
-                            <option value="" hidden>Seleccione un nacionalidad...</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input">
-                    <div class="form__inputBox">
-                        <i class="ri-phone-line"></i>
-                        <input type="text" placeholder="celular personal" id="celularPersonal" autocomplete="off">
-                    </div>
-                </div>
-
-                <button class="boton" id="botonGuardar" disabled>Guardar</button>
-
-            </form>
-
+            <div class="gestionarAfecciones__lista"></div>
         </div>
     </div>
 
-
-    <div class="acordeon">
-        <button class="acordeon__nombre">
-            <div class="acordeon__iconoTitulo">
-                <i class="ri-medicine-bottle-line acordeon__icono"></i>
-                <p class="acordeon__titulo">Afecciones</p>
-            </div>
-            <div class="acordeon__flecha">
-                <i class="ri-arrow-down-s-line"></i>
-            </div>
-        </button>
-
-        <div class="acordeon__contenido--oculto" id="acordeon__container">
-
-            <div class="gestioarAfecciones">
-
-                <div class="gestionarAfecciones__header">
-                    <div class="gestionarAfecciones__titulo">
-                        <i class="ri-capsule-line"></i>
-                        <p>Lista de Afecciones</p>
-                    </div>
-
-                    <button class="gestionarAfecciones__boton boton">Agregar nuevo</button>
-                </div>
-
-                <div class="gestionarAfecciones__lista"></div>
-
-            </div>
-
-        </div>
-    </div>
 </div>

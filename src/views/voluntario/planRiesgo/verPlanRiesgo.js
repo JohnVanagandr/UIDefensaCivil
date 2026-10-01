@@ -6,6 +6,7 @@
 import { api, alertas as alerta, formatearFecha } from "@/helpers/index.js";
 import { verRiesgo } from "@/componentes/riesgo/index.js";
 import { paginacion } from "@/helpers/index.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
 
@@ -17,7 +18,7 @@ export default async () => {
     // Contenedor Inyección Grilla Dom
     const contenedor = document.querySelector(".container__paginas");
 
-    const esSupervisor = location.hash.includes("/supervisor/");
+    const {esSupervisor} = obtenerRol();
 
     // Concurrency Lock Avoid Double clicks
     if (window.procesoPeticion === undefined) window.procesoPeticion = true;

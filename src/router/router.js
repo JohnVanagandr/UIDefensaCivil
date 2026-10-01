@@ -10,8 +10,8 @@ import { routes } from "./routers";
 // Importa utilidades gráficas para el display de alertas en pantalla
 import * as alerta from "../helpers/alertas";
 import { isAuth, isAuthorize } from "../helpers/auth";
-
 import * as api from "../helpers/api";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 const viewTemplates = import.meta.glob("../views/**/*.html", { as: "raw" });
 
@@ -97,7 +97,8 @@ export const router = async (main) => {
     }
 
     // Asegurar que las vistas del supervisor tengan la clase container--supervisor para el padding lateral del aside
-    const esSupervisor = location.hash.includes("supervisor");
+    const { esSupervisor } = obtenerRol();
+
     const container = document.querySelector(".container");
     if (container) {
         if (esSupervisor) {
@@ -139,8 +140,9 @@ const corregirQueryParams = (hash) => {
 }
 
 const ocultarEditarUrl = async (hash) => {
-    const esSupervisor = hash.includes("supervisor/");
-    const esVoluntario = hash.includes("voluntario/");
+
+    const { esSupervisor, esVoluntario } = obtenerRol();
+
     const segmentos = hash.split("/");
     const tieneEditar = segmentos.some(segmento => segmento.split("?")[0] === 'editar');
     const estaEnPlan = hash.includes("plan_familiar/");
@@ -172,8 +174,8 @@ const ocultarEditarUrl = async (hash) => {
 }
 
 const ocultarUrlFamilia = async (hash) => {
-    const esSupervisor = hash.includes("supervisor/");
-    const esVoluntario = hash.includes("voluntario/");
+
+    const { esSupervisor, esVoluntario } = obtenerRol();
 
     if (!hash.includes("familia_id") && !hash.includes("plan_familiar/")) return;
 

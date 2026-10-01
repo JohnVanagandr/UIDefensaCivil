@@ -5,10 +5,7 @@
  */
 
 // Importaciones de los submódulos controladores
-import antes from "./antes/antes.js";
-import durante from "./durante/durante.js";
-import despues from "./despues/despues.js";
 import planAccionController from "./planAccionController.js";
 
 // Exportación centralizada
-export {antes, durante, despues, planAccionController};
+export {planAccionController};

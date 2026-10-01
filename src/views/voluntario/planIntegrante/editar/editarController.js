@@ -15,29 +15,28 @@ import { adjuntarOpciones as adjuntarOpc } from "@/helpers/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { integrante as modalIntegrante } from "@/helpers/modales/index.js";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
-import { acordeon } from "@/helpers/index.js"; // Script Inyector Eventos Acordeon Toggle JS Vainilla
 import { initTomSelectPortatil } from "@/helpers/tomSelectPortatil";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
   // Selectores UI Básicos Control
-  const esSupervisor = location.hash.includes("/supervisor/");
-
   const botonBack = document.getElementById("botonBack");
   const botonGuardar = document.getElementById("botonGuardar"); // Activa Patch Member Data
   const form = document.querySelector(".form");
-
+  
   // PARSING DOBLE URL
   //Teniendo en las nuevas rutas el formato de URL con query params cambia.
   const hashQuery = location.hash.split("?")[1] ?? ""; // Si no hay query params, asigna string vacío para evitar errores al crear URLSearchParams
   const params = new URLSearchParams(hashQuery); // Crea instancia URLSearchParams para extraer parámetros específicos de la URL despues del signo de interrogación. Ejemplo URL: #/voluntario/plan_familiar/integrantes/editar?familia_id=123&integrante_id=456
-
+  
   const planId = params.get("familia_id"); // Extrae el valor del parámetro "familia_id" de la URL, que identifica a qué familia pertenece el integrante que se está editando. Este ID es crucial para las operaciones de carga y actualización de datos específicas de ese integrante dentro de su familia.
   const integranteId = params.get("integrante_id"); // Extrae el valor del parámetro "integrante_id" de la URL, que identifica al miembro específico que se está editando. Este ID se utiliza para cargar los datos actuales del integrante en el formulario y para enviar las actualizaciones correctas al backend cuando se guarden los cambios.
-
-  // Nodos UI Submódulo Enfermedades (Afecciones Acordeon Pestaña Inferior)
+  
+  // Nodos UI Submódulo Enfermedades
   const contenedorAfecciones = document.querySelector(".gestionarAfecciones__lista",);
   const botonAñadir = document.querySelector(".gestionarAfecciones__boton"); // Trigger Modal
   
+  const {esSupervisor} = obtenerRol();
 
   if (esSupervisor) {
     botonAñadir.classList.add("oculto");
@@ -113,9 +112,6 @@ export default async () => {
       contenedorAfecciones.appendChild(boton); // Anexar 
     });
   };
-
-  // Inicializador Vanilla Helper Plegar/Desplegar Menus de Abajo
-  acordeon()
 
   // Ejecutar carga de Enfermedades inicial
   cargarAfecciones();

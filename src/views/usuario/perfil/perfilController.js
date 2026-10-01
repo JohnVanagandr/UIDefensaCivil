@@ -14,6 +14,11 @@ import { cargarDatosHelper as cargarDatos } from "@/helpers/index.js";
 
 export default async () => {
     // Referencias al DOM (Campos de Muestra)
+    const rolId = parseInt(localStorage.getItem("role_id"));
+    const esSupervisor = rolId === 2;
+
+    const container = document.querySelector(".container");
+
     const nombres = document.getElementById("nombres");
     const apellidos = document.getElementById("apellidos");
     const tipoDocumento = document.getElementById("tipoDocumento");
@@ -22,7 +27,6 @@ export default async () => {
     const genero = document.getElementById("genero");
     const seccional = document.getElementById("seccional");
     const organizacion = document.getElementById("organizacion");
-
     const telefono = document.getElementById("telefono");
     const correo = document.getElementById("correo");
     const contrasena = document.getElementById("contrasena");
@@ -33,6 +37,9 @@ export default async () => {
         history.back();
     };
 
+    if(esSupervisor){
+        container.classList.add("container--supervisor");
+    };
 
     const botonEditarTelefono = document.getElementById('botonEditarTelefono');
     const accionesTelefono = document.getElementById('accionesTelefono');

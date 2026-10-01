@@ -5,6 +5,7 @@
  * las tarjetas (cards) de datos a medida que el usuario navega, evitando sobrecargar la RAM.
  */
 import * as api from "./api";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 // Recibe la URL de la api, el texto a mostrar si hay 0 resultados, y la función 'carta' que construye el HTML visual.
 const paginacion = async (peticion, mensajeVacio, carta) => {
@@ -15,8 +16,7 @@ const paginacion = async (peticion, mensajeVacio, carta) => {
 
     containerPaginador.classList.add("oculto");
     
-    const esSupervisor = location.hash.includes("/supervisor/");
-    const esVoluntario = location.hash.includes("/voluntario/");
+    const { esSupervisor, esVoluntario } = obtenerRol();
 
     let paginaActual = 1;
 

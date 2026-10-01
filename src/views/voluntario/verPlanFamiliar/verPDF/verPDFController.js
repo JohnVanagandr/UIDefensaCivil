@@ -6,6 +6,7 @@
 
 import { api, alertas as alerta } from "@/helpers/index.js";
 import { verPdfComponent } from "@/componentes/ver_pdf/verpdf.js";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 /**
  * Controlador principal para la visualización del PDF del Plan Familiar.
@@ -35,7 +36,7 @@ const VerPDFController = async (parametros) => {
 
     // Configura el botón físico de retroceso (botonBack) en la barra superior común
     const botonBack = document.getElementById("botonBack");
-    const esSupervisor = location.hash.includes("supervisor/");
+    const {esSupervisor} = obtenerRol();
     const base = esSupervisor ? "supervisor" : "voluntario"; // Determina la base de la ruta según el rol
     
     if (botonBack) {

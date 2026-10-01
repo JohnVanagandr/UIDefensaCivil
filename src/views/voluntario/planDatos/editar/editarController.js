@@ -13,8 +13,8 @@ import { api } from "@/helpers/index.js";
 import { cargarDatos } from "@/helpers/cargarDatos";
 // Importación explícita desde index.js del directorio para asegurar la resolución de rutas en Vite.
 import { validacionInputs as validacion } from "@/helpers/index.js";
-
 import { initTomSelectPortatil } from "../../../../helpers/tomSelectPortatil";
+import { obtenerRol } from "@/helpers/obtenerRol.js";
 
 export default async () => {
   // Extraer el código único o número identificador del plan desde la dirección del navegador web
@@ -38,13 +38,13 @@ export default async () => {
   const telefono = document.getElementById("telefonoFijo"); // Número de contacto telefónico
   const calidadesVivienda = document.getElementById("calidadesVivienda"); // Lista desplegable de calidades o materiales
 
+  const { esSupervisor } = obtenerRol();
+  
   // Mecanismo de bloqueo para evitar que el usuario presione botones mientras el sistema está cargando
   if (window.procesoPeticion === undefined) {
     window.procesoPeticion = true;
   }
   window.procesoPeticion = true;
-
-  const esSupervisor = location.hash.includes("/supervisor/");
 
   // Comportamiento del botón superior para ir de vuelta al menú central
   botonBack.onclick = async () => {

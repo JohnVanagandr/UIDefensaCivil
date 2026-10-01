@@ -5,6 +5,7 @@ button {
 
 .boton {
   width: fit-content;
+  height: fit-content;
   padding: 10px 20px;
   border-radius: var(--border-radius-botones);
   background-color: var(--color-primario);
@@ -198,7 +199,7 @@ button {
 
 .planAccion__botonera button{
 
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   padding: 10px;
   width: 150px;
   border-radius: 200px;

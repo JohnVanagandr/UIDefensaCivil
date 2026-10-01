@@ -108,6 +108,7 @@ const factorRiesgoVentana = async (factor, miembrosFamilia, info) => {
 
         riskReduction.forEach(async accion => {
 
+            // console.log("accion:", accion);
             const accionCont = document.createElement("div");
             accionCont.classList.add("form_autorizacion", "form-column_autorization");
 
@@ -117,13 +118,7 @@ const factorRiesgoVentana = async (factor, miembrosFamilia, info) => {
 
             const encargado = document.createElement("p");
             encargado.classList.add("form_autorizacion");
-            
-            const nombreEncargado = miembrosFamilia.find(m => { 
-                return m.member_id == accion.member_id
-            });
-
-            const miembro = await api.get(`members/${nombreEncargado.member_id}`);
-            encargado.textContent = `Encargado: ${miembro.names} ${miembro.last_names}`;
+            encargado.textContent = `Encargado: ${accion.member.names} ${accion.member.last_names}`;
 
             const fechas = document.createElement("p");
             fechas.classList.add("form_autorizacion");
@@ -160,10 +155,6 @@ const factorRiesgoVentana = async (factor, miembrosFamilia, info) => {
         if (e.target === overlay) {
             document.body.removeChild(overlay);
         }
-    };
-
-    btnCerrar.onclick = () => {
-        document.body.removeChild(overlay);
     };
 
     btnEditar.addEventListener("click", ()=>{
